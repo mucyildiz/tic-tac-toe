@@ -1,1 +1,21 @@
- 
+ .game-container{
+    margin: 0 auto;
+    height: 350px;
+    width: 350px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+ }
+
+ .cell{
+    display: flex;
+    border: thick solid black;
+    font-size: 50px;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 700;
+    
+    
+ }
