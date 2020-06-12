@@ -49,16 +49,31 @@ const GameFlow = () => {
     const diagonalVictory = (marker) => {
         return (isMarker(0, 4, 8, marker) || isMarker(2, 4, 6, marker));
     }
-    const checkVictory = (marker) => {
-        return horizontalVictory(marker) || verticalVictory(marker) || diagonalVictory(marker);
+
+    const boardFull = () => {
+        for(cell of gameboard){
+            if(cell.innerHTML == ''){
+                return false;
+            }
+        }
+        return true;
     }
+
+    const checkVictory = (marker) => {
+        let victoryCheck = horizontalVictory(marker) || verticalVictory(marker) || diagonalVictory(marker);
+        return victoryCheck;
+    }
+
 
     const makePlay = (index, currPlayer) => {
         GameBoard.updateGameBoard(index, currPlayer.getMarker());
         if(checkVictory(currPlayer.getMarker()) == true){
             currPlayer.winner = true;
-            console.log(currPlayer.getName() + ' is win.')
-        };
+            console.log(currPlayer.getName() + ' is win.');
+        }
+        else if(boardFull() == true && checkVictory(currPlayer.getMarker()) == false){
+            console.log('tie');
+        }
     }
 
 
