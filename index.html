@@ -10,14 +10,25 @@
              Tic-Tac-Toe
          </div>
          <div class='container'>
-             <form class='player-info' onsubmit="return false">
-                 <label for='playerOneName'>Player One</label>
-                 <input type="text" id="playerOne" name="playerOne" required>
-                 <label for='playerTwoName'>Player Two</label>
-                 <input type="text" id="playerTwo" name="playerTwo" required>
-                 <input type="submit" value="Start Game" class="submit" onclick='startGame()'>
-             </form>
-             <div class='game-container'></div>
+            <form class='player-info' onsubmit="return false">
+                <label for='playerOneName'>Player One</label>
+                <input type="text" id="playerOne" name="playerOne" required>
+                <label for='playerTwoName'>Player Two</label>
+                <input type="text" id="playerTwo" name="playerTwo" required>
+                <input type="submit" value="Start Game" class="submit" onclick='startGame()'>
+            </form>
+             <div class='main-container'>
+                <div class='game-over'>
+                    <div class='winner-text'></div>
+                    <button class='submit play-again'>Play Again</button>
+                    <button class='submit exit'>Exit</button>
+                </div>
+                <div class='player one'></div>
+                <div class ='player two'></div>
+                <div class='game-container'>
+                </div>
+             </div>
+
          </div>
      </main>
  </html>

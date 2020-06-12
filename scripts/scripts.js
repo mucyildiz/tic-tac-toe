@@ -23,10 +23,10 @@ const GameBoard = (function() {
 const Player = (name, marker) => {
     const getName = () => name;
     const getMarker = () => marker;
+    const numWins = 0;
 
 
-
-    return{getName, getMarker}
+    return{getName, getMarker, numWins};
     
 };
 
@@ -65,7 +65,11 @@ const GameFlow = (playerOne, playerTwo) => {
     const makePlay = (index, currPlayer) => {
         GameBoard.updateGameBoard(index, currPlayer.getMarker());
         if(checkVictory(currPlayer.getMarker()) == true){
-            console.log(currPlayer.getName() + ' is win.');
+            currPlayer.numWins++;
+            let wins = document.querySelector('.' + currPlayer.getMarker() + 'wins');
+            wins.innerHTML = currPlayer.numWins;
+            gameOver(currPlayer);
+            console.log(currPlayer.getName() + ' is win.' + currPlayer.numWins);
         }
         else if(boardFull() == true && checkVictory(currPlayer.getMarker()) == false){
             console.log('tie');
@@ -85,6 +89,26 @@ const GameFlow = (playerOne, playerTwo) => {
         makePlay(index, player);
     }))
     
+    const gameOver = (player) => {
+        let gameOver = document.querySelector('.game-over');
+        let text = document.querySelector('.winner-text');
+        gameOver.style.display = 'block';
+        text.innerHTML = player.getName() + ' has won.'
+        let playAgain = document.querySelector('.play-again')
+        playAgain.addEventListener('click', reset);
+        let exit = document.querySelector('.exit')
+        exit.addEventListener('click', () => {
+            gameOver.style.display = 'none';
+        })
+    }
+
+    const reset = () => {
+        let gameOver = document.querySelector('.game-over');
+        for(cell of gameboard){
+            cell.innerHTML = '';
+        }
+        gameOver.style.display = 'none';
+    }
 
     return{checkVictory, makePlay}
 };
@@ -98,5 +122,22 @@ const startGame = () => {
     gameflow = GameFlow(playerOne, playerTwo);
     let form = document.querySelector('.player-info');
     form.style.display = 'none';
+    let game = document.querySelector('.game-container');
+    game.style.display = 'grid';
 
+    let playerOneDisplay = document.querySelector('.one');
+    let playerTwoDisplay = document.querySelector('.two');
+    playerOneDisplay.innerHTML = playerOne.getName() + ': ' + playerOne.getMarker();
+    playerTwoDisplay.innerHTML = playerTwo.getName() + ': ' + playerTwo.getMarker();
+
+    const attachWins = (player, display) => {
+        let winTracker = document.createElement('div');
+        winTracker.className = player.getMarker() + 'wins';
+        winTracker.innerHTML = player.numWins;
+        display.appendChild(winTracker);
+    }
+
+    attachWins(playerOne, playerOneDisplay);
+    attachWins(playerTwo, playerTwoDisplay);
 }
+
