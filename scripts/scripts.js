@@ -23,11 +23,10 @@ const GameBoard = (function() {
 const Player = (name, marker) => {
     const getName = () => name;
     const getMarker = () => marker;
-    let winner = false;
 
 
 
-    return{getName, getMarker, winner}
+    return{getName, getMarker}
     
 };
 
@@ -68,7 +67,6 @@ const GameFlow = () => {
     const makePlay = (index, currPlayer) => {
         GameBoard.updateGameBoard(index, currPlayer.getMarker());
         if(checkVictory(currPlayer.getMarker()) == true){
-            currPlayer.winner = true;
             console.log(currPlayer.getName() + ' is win.');
         }
         else if(boardFull() == true && checkVictory(currPlayer.getMarker()) == false){

@@ -1,21 +1,40 @@
+ @font-face{
+     font-family: 'funsized';
+     src: url("/Fonts/funsized-webfont.woff");
+ }
+ @font-face{
+     font-family: 'kghappy';
+     src: url("/Fonts/kghappy-webfont.woff");
+ }
+ 
  .game-container{
     margin: 0 auto;
+    margin-top: 75px;
     height: 350px;
     width: 350px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    border: 1px solid black;
  }
 
  .cell{
     display: flex;
-    border: thick solid black;
-    font-size: 50px;
+    border: 2px solid black;
+    font-size: 75px;
     color: black;
     align-items: center;
     justify-content: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 700;
-    
+    font-family: 'funsized';
     
  }
+
+.header {
+    display: absolute;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 60px;
+    font-family: 'kghappy'
+}
