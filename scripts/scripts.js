@@ -30,9 +30,7 @@ const Player = (name, marker) => {
     
 };
 
-const GameFlow = () => {
-    let playerOne = Player('me', 'X');
-    let playerTwo = Player('you', 'O');
+const GameFlow = (playerOne, playerTwo) => {
     let turnTracker = 0;
     let gameboard = GameBoard.gameArray;
 
@@ -74,8 +72,6 @@ const GameFlow = () => {
         }
     }
 
-
-
     gameboard.forEach(cell => cell.addEventListener('click', (e) => {
         let index = gameboard.indexOf(e.target);
         if(turnTracker == 0 && e.target.innerHTML == ''){
@@ -88,13 +84,19 @@ const GameFlow = () => {
         }
         makePlay(index, player);
     }))
-        
+    
 
     return{checkVictory, makePlay}
 };
 
-const startGame = () => {
-    
-}
 
-gameflow = GameFlow();
+const startGame = () => {
+    let playerOneName = document.querySelector('[name="playerOne"]').value;
+    let playerTwoName = document.querySelector('[name="playerTwo"]').value;
+    let playerOne = Player(playerOneName, 'X');
+    let playerTwo = Player(playerTwoName, 'O');
+    gameflow = GameFlow(playerOne, playerTwo);
+    let form = document.querySelector('.player-info');
+    form.style.display = 'none';
+
+}
