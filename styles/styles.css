@@ -51,8 +51,8 @@
 }
  .cell{
     display: flex;
-    border: 2px solid hsla(210, 100%, 75%, 1.0);;
-    font-size: 75px;
+    border: 2px solid hsla(210, 100%, 75%, 1.0);
+    font-size: 65px;
     color: hsla(210, 100%, 75%, 1.0);;
     align-items: center;
     justify-content: center;
@@ -61,7 +61,7 @@
  }
 
 .header {
-    color: hsla(210, 100%, 75%, 1.0);;
+    color: hsla(210, 100%, 75%, 1.0);
     display: absolute;
     width: 50%;
     text-align: center;
@@ -69,4 +69,48 @@
     margin-top: 50px;
     font-size: 60px;
     font-family: 'kghappy'
+}
+
+.player-info{
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 30px;
+    font-family: 'kghappy';
+    position: absolute;
+    background-color: #001f3f;
+    height: 350px;
+    width: 350px;
+    left: 50%;
+    margin-left: -175px;
+    border: thick solid white;
+    border-radius: 25px;
+}
+
+input[type=text]{
+    margin-bottom: 20px;
+    margin-top: 2px;
+    border: 2px solid white;
+    border-radius: 15px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    font-size: 25px;
+    background-color: #004d80;
+    color: white;
+    padding-left: 10px;
+    font-family: 'kghappy'
+}
+
+.submit{
+
+    height: 80px;
+    width: 160px;
+    border: 2px solid white;
+    background-color: #004d80;
+    border-radius: 50px;
+    font-family: 'kghappy';
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
 }
