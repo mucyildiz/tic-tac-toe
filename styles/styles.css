@@ -6,6 +6,10 @@
      font-family: 'kghappy';
      src: url("/Fonts/kghappy-webfont.woff");
  }
+
+ html {
+     background-color: #001f3f;
+ }
  
  .game-container{
     margin: 0 auto;
@@ -15,14 +19,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    border: 1px solid black;
+    border: 1px solid white;
  }
 
  .cell{
     display: flex;
-    border: 2px solid black;
+    border: 2px solid white;
     font-size: 75px;
-    color: black;
+    color: white;
     align-items: center;
     justify-content: center;
     font-family: 'funsized';
@@ -30,6 +34,7 @@
  }
 
 .header {
+    color: white;
     display: absolute;
     width: 50%;
     text-align: center;
