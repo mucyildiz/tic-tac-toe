@@ -10,12 +10,12 @@
              Tic-Tac-Toe
          </div>
          <div class='container'>
-             <form class='player-info'>
+             <form class='player-info' onsubmit="return false">
                  <label for='playerOneName'>Player One</label>
-                 <input type="text" id="playerOne" name="playerOne">
+                 <input type="text" id="playerOne" name="playerOne" required>
                  <label for='playerOneName'>Player Two</label>
-                 <input type="text" id="playerOne" name="playerOne">
-                 <button type='button' class='submit'>Start Game</button>
+                 <input type="text" id="playerOne" name="playerOne" required>
+                 <input type="submit" value="Start Game" class="submit">
              </form>
              <div class='game-container'></div>
          </div>

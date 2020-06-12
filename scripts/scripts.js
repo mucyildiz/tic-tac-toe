@@ -93,4 +93,8 @@ const GameFlow = () => {
     return{checkVictory, makePlay}
 };
 
+const startGame = () => {
+    
+}
+
 gameflow = GameFlow();
